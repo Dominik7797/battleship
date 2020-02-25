@@ -40,6 +40,8 @@ def ship_placement_1(placement_board_1):
         cordinate_ship1 = input("Enter a valid cordinate (eg. a2): ")
     if cordinate_ship1 in valid_input:
         used_input.append(cordinate_ship1)
+        print(get_mark_2(cordinate_ship1))
+        
     print("Ship size: 2x1")
     cordinate_ship2 = input("Enter a valid cordinate (eg. a2): ")
     while cordinate_ship2 in used_input or cordinate_ship2 not in valid_input:
@@ -125,6 +127,33 @@ def ship_placement_2(placement_board_2):
         col2 = 3
     elif col2 == '5':
         col2 = 4
+
+
+def get_mark_2(text_cord):
+    row1 = text_cord[0]
+    col1 = text_cord[1]
+    if row1 == 'a':
+        row1 = 0
+    elif row1 == 'b':
+        row1 = 1
+    elif row1 == 'c':
+        row1 = 2
+    elif row1 == 'd':
+        row1 = 3
+    elif row1 == 'e':
+        row1 = 4
+    if col1 == '1':
+        col1 = 0
+    elif col1 == '2':
+        col1 = 1
+    elif col1 == '3':
+        col1 = 2
+    elif col1 == '4':
+        col1 = 3
+    elif col1 == '5':
+        col1 = 4
+
+    return row1, col1
 
 
 def get_mark(ships_cord):
