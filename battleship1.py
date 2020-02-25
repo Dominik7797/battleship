@@ -40,8 +40,8 @@ def ship_placement_1(placement_board_1):
         cordinate_ship1 = input("Enter a valid cordinate (eg. a2): ")
     if cordinate_ship1 in valid_input:
         used_input.append(cordinate_ship1)
-        print(get_mark_2(cordinate_ship1))
-        
+        print(get_mark(cordinate_ship1))
+      
     print("Ship size: 2x1")
     cordinate_ship2 = input("Enter a valid cordinate (eg. a2): ")
     while cordinate_ship2 in used_input or cordinate_ship2 not in valid_input:
@@ -49,6 +49,7 @@ def ship_placement_1(placement_board_1):
         cordinate_ship2 = input("Enter a valid cordinate (eg. a2): ")
     if cordinate_ship2 in valid_input:
         used_input.append(cordinate_ship2)
+        print(get_mark(cordinate_ship2))
     ships_cord = used_input
     return ships_cord
 
@@ -76,60 +77,8 @@ def ship_placement_2(placement_board_2):
     if cordinate_ship2 in valid_input:
         used_input.append(cordinate_ship2)
 
-    cord_1 = []
-    for character in cordinate_ship1:
-        cord_1 += character
-    row1 = cord_1[0]
-    col1 = cord_1[1]
-    if row1 == 'a':
-        row1 = 0
-    elif row1 == 'b':
-        row1 = 1
-    elif row1 == 'c':
-        row1 = 2
-    elif row1 == 'd':
-        row1 = 3
-    elif row1 == 'e':
-        row1 = 4
-    if col1 == '1':
-        col1 = 0
-    elif col1 == '2':
-        col1 = 1
-    elif col1 == '3':
-        col1 = 2
-    elif col1 == '4':
-        col1 = 3
-    elif col1 == '5':
-        col1 = 4
 
-    cord_2 = []
-    for character in cordinate_ship2:
-        cord_2 += character
-    row2 = cord_2[0]
-    col2 = cord_2[1]
-    if row2 == 'a':
-        row2 = 0
-    elif row2 == 'b':
-        row2 = 1
-    elif row2 == 'c':
-        row2 = 2
-    elif row2 == 'd':
-        row2 = 3
-    elif row2 == 'e':
-        row2 = 4
-    if col2 == '1':
-        col2 = 0
-    elif col2 == '2':
-        col2 = 1
-    elif col2 == '3':
-        col2 = 2
-    elif col2 == '4':
-        col2 = 3
-    elif col2 == '5':
-        col2 = 4
-
-
-def get_mark_2(text_cord):
+def get_mark(text_cord):
     row1 = text_cord[0]
     col1 = text_cord[1]
     if row1 == 'a':
@@ -156,67 +105,5 @@ def get_mark_2(text_cord):
     return row1, col1
 
 
-def get_mark(ships_cord):
-
-    cord_1 = []
-    for character in ships_cord[0]:
-        cord_1 += character
-    row1 = cord_1[0]
-    col1 = cord_1[1]
-    if row1 == 'a':
-        row1 = 0
-    elif row1 == 'b':
-        row1 = 1
-    elif row1 == 'c':
-        row1 = 2
-    elif row1 == 'd':
-        row1 = 3
-    elif row1 == 'e':
-        row1 = 4
-    if col1 == '1':
-        col1 = 0
-    elif col1 == '2':
-        col1 = 1
-    elif col1 == '3':
-        col1 = 2
-    elif col1 == '4':
-        col1 = 3
-    elif col1 == '5':
-        col1 = 4
-
-    cord_2 = []
-    for character in ships_cord[1]:
-        cord_2 += character
-    row2 = cord_2[0]
-    col2 = cord_2[1]
-    if row2 == 'a':
-        row2 = 0
-    elif row2 == 'b':
-        row2 = 1
-    elif row2 == 'c':
-        row2 = 2
-    elif row2 == 'd':
-        row2 = 3
-    elif row2 == 'e':
-        row2 = 4
-    if col2 == '1':
-        col2 = 0
-    elif col2 == '2':
-        col2 = 1
-    elif col2 == '3':
-        col2 = 2
-    elif col2 == '4':
-        col2 = 3
-    elif col2 == '5':
-        col2 = 4
-
-    ship1 = row1, col1
-    ship2 = row2, col2
-    return ship1, ship2
-
-
 placement_board_1 = placement_board_1()
 ships_cord = ship_placement_1(placement_board_1)
-ship1, ship2 = get_mark(ships_cord)
-print(ship1)
-print(ship2)
