@@ -14,16 +14,6 @@ def placement_board_1():
     return placement_board_1
 
 
-def placement_board_2():
-    placement_board_2 = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]]
-    return placement_board_2
-
-
 def ship_placement():
     valid_input = [
                     'a1', 'a2', 'a3', 'a4', 'a5',
@@ -40,7 +30,9 @@ def ship_placement():
     if cordinate_ship1 in valid_input:
         used_input.append(cordinate_ship1)
         row1, col1 = get_mark(cordinate_ship1)
-        put_ships_board(row1, col1, placement_board_1)
+        ship_1 = put_ships_board(row1, col1, placement_board_1)
+        os.system('clear')
+        print_board_1(placement_board_1)
     print("Ship size: 2x1")
     cordinate_ship2 = input("Enter a valid cordinate (eg. a2): ")
     while cordinate_ship2 in used_input or cordinate_ship2 not in valid_input:
@@ -48,14 +40,21 @@ def ship_placement():
         cordinate_ship2 = input("Enter a valid cordinate (eg. a2): ")
     if cordinate_ship2 in valid_input:
         used_input.append(cordinate_ship2)
-        ship_2 = get_mark(cordinate_ship2)
+        row1, col1 = get_mark(cordinate_ship2)
+        # TODO: v or h
+        # TODO: check if it's valid
+        ship_2 = put_ships_board(row1, col1, placement_board_1)
+        Vertical_or_Horizontal(ship_2, placement_board_1)
+        os.system('clear')
+        print_board_1(placement_board_1)
 
     return ship_1, ship_2
 
 
 def put_ships_board(row1, col1, placement_board_1):
-
-    placement_board_1[row1][col1] == '1'
+    placement_board_1 = list(placement_board_1)
+    placement_board_1[row1][col1] = "S"
+    return placement_board_1
 
 
 def get_mark(text_cord):
@@ -87,7 +86,6 @@ def get_mark(text_cord):
 
 def print_board_1(placement_board_1):
 
-
     print('   1  ''   2  ''  3 ''   4 ''   5 ')
     print(' --------------------------')
     print(' |    |    |    |    |    |')
@@ -111,21 +109,16 @@ def print_board_1(placement_board_1):
     print(' |    |    |    |    |    |')
     print(' --------------------------')
 
-'''
-def valid_placement(ship, placement_board_1):
+
+def Vertical_or_Horizontal(ship, placement_board_1):
     print(ship)
     v_h = input("Vertical or Horizontal? (v or h): ").lower()
     if v_h == "v" or "vertical":
-        for i in len(ship):
-            ship = ship
+        ship[1] += 1
         print(ship)
-    return ship
-'''
+
+
 
 placement_board_1 = placement_board_1()
 print_board_1(placement_board_1)
 ship_1, ship_2 = ship_placement()
-put_ships_board(ship_1, ship_2, placement_board_1)
-# valid_placement(ship_2, placement_board_1)
-
-
